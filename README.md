@@ -25,5 +25,9 @@ The assignment has seven sections. They contribute to the total mark as follows:
 | 5       | 20    |
 | 6       | 20    |
 | 7       | 20    |
-|---------|-------|
-| TOTAL   | 100   |
+| *TOTAL* | *100* |
+
+Within each section, 70% of the grade is given if all the corresponding tests
+pass. The remainder is given based on how well you demonstrate your
+understanding of the principles from class, along with things such as layout and
+naming.
