@@ -11,3 +11,19 @@
 4. At some point, generate a PR back to me. Your work needn't be finished: if
    you push more commits to your account after creating a PR, they'll
    automatically get merged in (assuming you stay in the same branch).
+
+# Grading
+
+The assignment has seven sections. They contribute to the total mark as follows:
+
+| Section | Marks |
+|---------|------:|
+| 1       | 10    |
+| 2       | 10    |
+| 3       | 10    |
+| 4       | 10    |
+| 5       | 20    |
+| 6       | 20    |
+| 7       | 20    |
+|---------|-------|
+| TOTAL   | 100   |
