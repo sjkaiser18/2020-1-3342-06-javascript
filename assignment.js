@@ -2,38 +2,28 @@
 This assignment is broken into a number of sections. You'll want to get each
 section completed before moving on to the next. To make this easier,
 I've included all but the first section inside
-
   if (false) {
     section
     section...
   }
-
 As you complete a section, move the `if` part of this down past the end of the
 next section, which will then make it live.
-
   section
   if (false) {
     section...
   }
-
 Most sections have their own short description of the problem. However, there is
 one global rule: you can only change the code in this file that lies between the
 markers
-
   // START
-
 and
-
   // END
-
 So, in the following code:
-
   // START
   let a = 3
   let b
   // END
   assert.equal(a+b, 8)
-
 You can change the let statements, but not the assert. (My intent here would be
 for you to make the test pass my initializing b to 5.
 */
@@ -47,11 +37,11 @@ Error.stackTraceLimit = 2                 // set up the environment
 
 let a = 5
 // START
-let b
-let c
-let d
-let e
-let f
+let b=10
+let c=-11
+let d="hawaii"
+let e=99
+let f=0
 // END
 
 assert.equal(a + b, 15)
@@ -62,10 +52,10 @@ assert.equal(d + a + f, "hawaii50")
 
 // add parentheses to the first parameter to make this pass
 // START
-assert.equal(d + b + c, "hawaii-1")
+assert.equal(d + (b + c), "hawaii-1")
 //
 
-if (false) { // move me down to the next section when the one above is complete
+
 
 ///////////////// Section 2 ///////////////////////////////////////////
 //
@@ -74,10 +64,12 @@ if (false) { // move me down to the next section when the one above is complete
 // START
 let sum = 0
 for (let i = 1; i <= 10; i++) {
-  let sum = sum + i
+  sum+=i
 }
+
 // END
 assert.equal(sum, 55)
+
 
 
 ///////////////// Section 3 ///////////////////////////////////////////
@@ -86,11 +78,11 @@ assert.equal(sum, 55)
 
 let result = []
 //START
-for (let i in [1,2,3,4]) {
+for (let i of [1,2,3,4]) {
 // END
   result.push(3*i)
 }
-assert.equal(result, [3,6,9,12])
+assert.deepEqual(result, [3,6,9,12])
 
 
 
@@ -111,10 +103,11 @@ let populations = {
 let total = 0
 for (let city in  populations) {
   //START
-  total += populations.city
+  total += populations[city]
   // END
 }
 assert.equal(total, 25_145_561)
+
 
 
 ///////////////// Section 5 ///////////////////////////////////////////
@@ -124,7 +117,9 @@ assert.equal(total, 25_145_561)
 let count = 0
 function nextLabel(label) {
   // START
-  // ...
+      let sendout=label+'-'+count
+      count++
+      return sendout
   // END
 }
 
@@ -132,7 +127,7 @@ assert.equal(nextLabel("entry"), "entry-0")
 assert.equal(nextLabel("entry"), "entry-1")
 assert.equal(nextLabel("entry"), "entry-2")
 assert.equal(nextLabel("exit"),  "exit-3")
-
+if (false) { // move me down to the next section when the one above is complete
 
 ///////////////// Section 6 ///////////////////////////////////////////
 //
@@ -143,20 +138,24 @@ assert.equal(nextLabel("exit"),  "exit-3")
 // Fix that by writing a function that generates
 // a new function for each label to be seauenced
 
+//this works the same as create named logger
 function labelMaker(label) {
   // START
-  // ...
+      
   // END
 }
 
-let nextEntryLabel = labelMaker("entry")
+//these work the same as BettyLogger and WilmaLogger
+let nextEntryLabel = labelMaker("entry") 
 let nextExitLabel  = labelMaker("exit")
+
 
 assert.equal(nextEntryLabel(), "entry-0")
 assert.equal(nextEntryLabel(), "entry-1")
 assert.equal(nextExitLabel(),  "exit-0")
 assert.equal(nextEntryLabel(), "entry-2")
 assert.equal(nextExitLabel(),  "exit-1")
+
 
 ///////////////// Section 7 ///////////////////////////////////////////
 //
