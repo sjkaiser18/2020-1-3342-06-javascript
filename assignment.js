@@ -127,7 +127,7 @@ assert.equal(nextLabel("entry"), "entry-0")
 assert.equal(nextLabel("entry"), "entry-1")
 assert.equal(nextLabel("entry"), "entry-2")
 assert.equal(nextLabel("exit"),  "exit-3")
-if (false) { // move me down to the next section when the one above is complete
+
 
 ///////////////// Section 6 ///////////////////////////////////////////
 //
@@ -138,14 +138,25 @@ if (false) { // move me down to the next section when the one above is complete
 // Fix that by writing a function that generates
 // a new function for each label to be seauenced
 
-//this works the same as create named logger
 function labelMaker(label) {
   // START
-      
+      var ex_val=0
+      var en_val=0
+      return function nextEntryLabel(label){
+        if(label=="entry"){
+          let select=(`${label}-${en_val}`)
+          en_val++
+          return select
+        }
+        if(label=="exit"){
+          let select=(`${label}-${ex_val}`)
+          ex_val++
+          return select
+        }
+      }
   // END
 }
 
-//these work the same as BettyLogger and WilmaLogger
 let nextEntryLabel = labelMaker("entry") 
 let nextExitLabel  = labelMaker("exit")
 
@@ -175,7 +186,27 @@ assert.equal(nextExitLabel(),  "exit-1")
 
 function labelMaker1(label) {
   // START
-  // ...
+  var ex_val=0
+  var en_val=0
+      return function nextEntryLabel1(pass){
+        if(pass==undefined){
+            let new_pass=0
+        } 
+        else{
+          let new_pass=pass
+        }
+          if(label=="entry"){
+            let select=(`${label}-${en_val+new_pass}`)
+            en_val++
+            return select
+          }
+          if(label=="exit"){
+            let select=(`${label}-${ex_val+new_pass}`)
+            ex_val++
+            return select
+          }
+        }
+      
   // END
 }
 
@@ -191,4 +222,5 @@ assert.equal(nextExitLabel1(),    "exit-201")
 assert.equal(nextExitLabel1(0),   "exit-0")
 assert.equal(nextExitLabel1(),    "exit-1")
 
+if (false) { // move me down to the next section when the one above is complete
 }           // end of `if (false)`
