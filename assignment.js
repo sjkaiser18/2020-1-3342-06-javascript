@@ -56,7 +56,6 @@ assert.equal(d + (b + c), "hawaii-1")
 //
 
 
-
 ///////////////// Section 2 ///////////////////////////////////////////
 //
 // fix the declation(s) in this code (but continue to use let)
@@ -89,7 +88,7 @@ assert.deepEqual(result, [3,6,9,12])
 
 ///////////////// Section 4 ///////////////////////////////////////////
 //
-// fix the body of the loop
+//fix the body of the loop
 
 let populations = {
   houston:     2_099_451,
@@ -140,20 +139,13 @@ assert.equal(nextLabel("exit"),  "exit-3")
 
 function labelMaker(label) {
   // START
-      var ex_val=0
-      var en_val=0
-      return function nextEntryLabel(label){
-        if(label=="entry"){
-          let select=(`${label}-${en_val}`)
-          en_val++
-          return select
-        }
-        if(label=="exit"){
-          let select=(`${label}-${ex_val}`)
-          ex_val++
-          return select
-        }
+  var count=0
+      return function(){
+        let val=label+'-'+count
+        count++
+        return val
       }
+      
   // END
 }
 
@@ -186,27 +178,20 @@ assert.equal(nextExitLabel(),  "exit-1")
 
 function labelMaker1(label) {
   // START
-  var ex_val=0
-  var en_val=0
-      return function nextEntryLabel1(pass){
-        if(pass==undefined){
-            let new_pass=0
-        } 
+    var count=0
+    let val=''
+      return function(pass){
+        
+        if(pass!=undefined){
+          val=label+'-'+(pass)
+          count=pass+1
+        }
         else{
-          let new_pass=pass
+         val= label+'-'+count
+         count+=1
         }
-          if(label=="entry"){
-            let select=(`${label}-${en_val+new_pass}`)
-            en_val++
-            return select
-          }
-          if(label=="exit"){
-            let select=(`${label}-${ex_val+new_pass}`)
-            ex_val++
-            return select
-          }
-        }
-      
+        return val
+      }
   // END
 }
 
